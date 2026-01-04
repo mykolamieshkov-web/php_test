@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Тест PHP</title>
+</head>
+<body>
+    <h1>Тест PHP на Vercel</h1>
+
+    <button onclick="test()">Проверить PHP</button>
+
+    <script>
+        function test() {
+            fetch('/api/test_vercel_php.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({message: 'Тест'})
+            })
+            .then(res => res.json())
+            .then(data => alert(JSON.stringify(data, null, 2)))
+            .catch(err => alert('Ошибка: ' + err.message));
+        }
+    </script>
+</body>
+</html>
