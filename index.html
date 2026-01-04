@@ -11,13 +11,9 @@
 
     <script>
         function test() {
-            fetch('/api/test_vercel_php.php', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({message: 'Тест'})
-            })
-            .then(res => res.json())
-            .then(data => alert(JSON.stringify(data, null, 2)))
+            fetch('/api/test_vercel_php.php?message=test')
+            .then(res => res.text())
+            .then(data => alert(data))
             .catch(err => alert('Ошибка: ' + err.message));
         }
     </script>
